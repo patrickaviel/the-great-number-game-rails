@@ -1,0 +1,25 @@
+<div class="container p-5">
+    <h1 class="display-6 text-center">Welcome to the Great Number Game!</h1>
+    <p class="lead text-center">I am thinking of a number from 1 - 100!</p>
+    <p class="text-center">Can you guess it?</p>
+
+    <%if !flash[:notice] %>
+    <%= form_with url: index_path do |form| %>
+    <div class="mb-3">
+        <%= form.text_field :number, class: "form-control w-75 mx-auto", placeholder:"Enter number between 1-100" %>
+
+        <div class="mb-3 d-flex justify-content-center">
+            <%= form.submit "Guess Number", class:"btn btn-primary btn-lg mt-4"%>
+        </div>
+
+    </div>
+    <%end %>
+    <%else %>
+    <div class="mb-3">
+        <div class="mb-3 d-flex justify-content-center">
+            <%= link_to "Play Again", new_number_path, class:"btn btn-primary btn-lg mt-4" %>
+        </div>
+    </div>
+    <%end %>
+
+</div>
